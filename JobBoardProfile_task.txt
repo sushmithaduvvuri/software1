@@ -1,0 +1,130 @@
+import java.util.Scanner;
+
+class JobBoardProfile {
+    // Fields for user details
+    private String fullName;
+    private String email;
+    private String phoneNumber;
+    private String skillSet;
+    private String experience;
+
+    // Fields for job details
+    private String jobTitle;
+    private String jobSummary;
+    private String[] keyResponsibilities;
+    private String[] programmingLanguages;
+    private String[] requirements;
+    private String companyCulture;
+
+    // Constructor for user details
+    public JobBoardProfile(String fullName, String email, String phoneNumber, String skillSet, String experience) {
+        this.fullName = fullName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.skillSet = skillSet;
+        this.experience = experience;
+    }
+
+    // Constructor for job details
+    public JobBoardProfile(String jobTitle, String jobSummary, String[] keyResponsibilities,
+                           String[] programmingLanguages, String[] requirements, String companyCulture) {
+        this.jobTitle = jobTitle;
+        this.jobSummary = jobSummary;
+        this.keyResponsibilities = keyResponsibilities;
+        this.programmingLanguages = programmingLanguages;
+        this.requirements = requirements;
+        this.companyCulture = companyCulture;
+    }
+
+    // Method to display the user profile
+    public void displayUserProfile() {
+        System.out.println("\n=== User Profile ===");
+        System.out.println("Name: " + fullName);
+        System.out.println("Email: " + email);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Skills: " + skillSet);
+        System.out.println("Experience: " + experience);
+    }
+
+    // Method to display the job profile
+    public void displayJobProfile() {
+        System.out.println("\n=== Job Board Profile ===");
+        System.out.println("Job Title: " + jobTitle);
+        System.out.println("\nJob Summary:\n" + jobSummary);
+
+        System.out.println("\nKey Responsibilities:");
+        for (String responsibility : keyResponsibilities) {
+            System.out.println("- " + responsibility);
+        }
+
+        System.out.println("\nProgramming Languages:");
+        for (String language : programmingLanguages) {
+            System.out.println("- " + language);
+        }
+
+        System.out.println("\nRequirements:");
+        for (String requirement : requirements) {
+            System.out.println("- " + requirement);
+        }
+
+        System.out.println("\nCompany Culture and Values:");
+        System.out.println(companyCulture);
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Collect user profile details
+        System.out.println("Enter your full name: ");
+        String fullName = scanner.nextLine();
+
+        System.out.println("Enter your email: ");
+        String email = scanner.nextLine();
+
+        System.out.println("Enter your phone number: ");
+        String phoneNumber = scanner.nextLine();
+
+        System.out.println("Enter your skill set (comma-separated): ");
+        String skillSet = scanner.nextLine();
+
+        System.out.println("Enter your years of experience: ");
+        String experience = scanner.nextLine();
+
+        // Create and display the user profile
+        JobBoardProfile userProfile = new JobBoardProfile(fullName, email, phoneNumber, skillSet, experience);
+        userProfile.displayUserProfile();
+
+        // Initialize job profile details
+        String jobTitle = "Software Developer / Software Engineer";
+        String jobSummary = "A motivated and detail-oriented software developer responsible for designing, developing, "
+                + "and maintaining software applications to meet user and business needs.";
+
+        String[] keyResponsibilities = {
+            "Assist in planning, tracking, and managing software development tasks to ensure timely delivery.",
+            "Utilize version control systems (e.g., Git) to manage and track code changes effectively.",
+            "Design, code, test, and maintain software applications based on user requirements.",
+            "Write, debug, and test code for new features and resolve bugs.",
+            "Translate requirements into functional and user-friendly software solutions.",
+            "Collaborate with cross-functional teams to meet project goals and deliver high-quality results.",
+            "Create and maintain comprehensive documentation for code, processes, and systems."
+        };
+
+        String[] programmingLanguages = {"Java", "Python", "C"};
+        String[] requirements = {
+            "Strong understanding of project requirements and the ability to contribute effectively to software development.",
+            "Hands-on experience with writing and maintaining clean, scalable code.",
+            "Proficiency in debugging and testing features to ensure software quality.",
+            "Excellent collaboration and communication skills to work closely with team members.",
+            "A strong commitment to meeting deadlines and achieving project goals."
+        };
+
+        String companyCulture = "A supportive, innovative, and collaborative environment where learning and growth are encouraged.\n"
+                + "A focus on delivering impactful solutions that meet client and user needs while maintaining high standards of quality.";
+
+        // Create and display the job profile
+        JobBoardProfile jobProfile = new JobBoardProfile(jobTitle, jobSummary, keyResponsibilities,
+                programmingLanguages, requirements, companyCulture);
+        jobProfile.displayJobProfile();
+
+        scanner.close();
+    }
+}
